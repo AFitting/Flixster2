@@ -1,6 +1,7 @@
 package com.example.flixster2.adapters;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -28,17 +29,22 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View movieView = LayoutInflater.from(context).inflate(R.layout.item_movie, parent, false);
+        return new ViewHolder(movieView);
     }
 
+    // Involves populating data into the item through holder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
+        // Get the movie at the passed in position
+        Movie movie = movies.get(position);
+        // Bind the movie data into the ViewHolder
     }
 
+    // Returns the total count of the items in the list
     @Override
     public int getItemCount() {
-        return 0;
+        return movies.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
