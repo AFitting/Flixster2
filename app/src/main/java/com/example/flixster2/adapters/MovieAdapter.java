@@ -20,6 +20,8 @@ import com.example.flixster2.DetailActivity;
 import com.example.flixster2.R;
 import com.example.flixster2.models.Movie;
 
+import org.parceler.Parcels;
+
 import java.util.List;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
@@ -82,7 +84,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                 public void onClick(View v) {
                     // 2. Navigate to a new activity
                     Intent i = new Intent(context, DetailActivity.class);
-                    i.putExtra("title", movie.getTitle());
+                    i.putExtra("movie", Parcels.wrap(movie));
                     context.startActivity(i);
                 }
             });
